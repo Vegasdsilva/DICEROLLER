@@ -13,12 +13,19 @@
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-           
+            <Label
+                Text="6"
+                x:Name="ResultLabel"
+                HorizontalOptions="Center"
+                FontSize="100"/>
 
-            <Picker x:Name="picker"
-                     Title="Quantidade de lados">
+
+            <Picker x:Name="SidesPicker"
+                    WidthRequest="400">
+                
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
+                    <x:String>Quantidade de lados: </x:String>
                     <x:String>4</x:String>
                     <x:String>6</x:String>
                     <x:String>10</x:String>
@@ -27,13 +34,14 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-            
+
             <Button
-                x:Name="CounterBtn"
+                x:Name="RollBtn"
                 Text="ROLAR O DADO" 
-                SemanticProperties.Hint="Rola os dados"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
+                BackgroundColor="DarkGray" 
+                WidthRequest="200"
+                Clicked="RollBtn_Clicked">
+            </Button>
                 
         </VerticalStackLayout>
     </ScrollView>

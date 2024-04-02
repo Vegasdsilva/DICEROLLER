@@ -1,22 +1,27 @@
-﻿namespace DICEROLLER
+﻿using Microsoft.Extensions.Options;
+
+namespace DICEROLLER
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
+        int valor = 0;
         public MainPage()
         {
             InitializeComponent();
+            SidesPicker.SelectedIndex = 0;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+
+        private void RollBtn_Clicked(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-
-            Console.WriteLine("Generating 10 random numbers:");
-
-            for (uint ctr = 1; ctr <= 10; ctr++)
-                Console.WriteLine($"{rnd.Next(),15:N0}");
+            // Pegar o valor que foi selecionado pelo usuario no picker
+            valor = Convert.ToInt32(SidesPicker.SelectedItem) ;
+            //Jogar esse valor em uma variavel
+            //Sortear o numero em um dado utilizando 
+            var umvalor = 0;
+            umvalor = new Random().Next(1, valor+1);
+            //Exibir o valor para o usuario na ResultLabel
+            ResultLabel.Text = umvalor.ToString();
         }
     }
 
@@ -76,3 +81,4 @@
 - [Método Math Random](https://learn.microsoft.com/pt-br/dotnet/api/system.random.next?view=net-7.0)
 
 - [Picker](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/picker)
+*/
